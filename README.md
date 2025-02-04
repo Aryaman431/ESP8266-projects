@@ -22,7 +22,8 @@
       Signal (Yellow/Orange)	    D3 (GPIO0)
   ### For the LCD display 
 
-      ![WhatsApp Image 2025-02-05 at 01 46 47_18a5c5e3](https://github.com/user-attachments/assets/75550fc0-d408-4d16-a035-91c695232646)
+      ![WhatsApp Image 2025-02-05 at 01 46 47_36024917](https://github.com/user-attachments/assets/4f8160b5-d996-4fc5-ace3-51cb4c915f32)
+
 
 # Results
   The results should look like this
