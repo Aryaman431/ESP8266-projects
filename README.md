@@ -12,14 +12,14 @@
   Connect the components together(i used ChatGPT for the connections)
   ### For the DHT sensor
     ESP     DHT
-    3v       vcc
-    GND      GND
-    D4       DATA
+    3v    >   vcc
+    GND   >   GND
+    D4    >   DATA
   ### For the servo motor
       Servo                       ESP
-      VCC (Red)                  	3.3V or Vin (5V)
-      GND (Black/Brown)	          GND
-      Signal (Yellow/Orange)	    D3 (GPIO0)
+      VCC (Red)            >      	3.3V or Vin (5V)
+      GND (Black/Brown)	     >     GND
+      Signal (Yellow/Orange)	>    D3 (GPIO0)
   ### For the LCD display 
 
  ![WhatsApp Image 2025-02-05 at 01 46 47_36024917](https://github.com/user-attachments/assets/4f8160b5-d996-4fc5-ace3-51cb4c915f32)
