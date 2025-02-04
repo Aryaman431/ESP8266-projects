@@ -22,22 +22,22 @@
       Signal (Yellow/Orange)	    D3 (GPIO0)
   ### For the LCD display 
 
-      ![WhatsApp Image 2025-02-05 at 01 46 47_36024917](https://github.com/user-attachments/assets/4f8160b5-d996-4fc5-ace3-51cb4c915f32)
+ ![WhatsApp Image 2025-02-05 at 01 46 47_36024917](https://github.com/user-attachments/assets/4f8160b5-d996-4fc5-ace3-51cb4c915f32)
 
 
 # Results
   The results should look like this
   ### LCD
       
-      ![WhatsApp Image 2025-02-05 at 01 00 05_259d2d55](https://github.com/user-attachments/assets/e3984ec7-a654-4afa-b086-f5465604a2a9)
+![WhatsApp Image 2025-02-05 at 01 00 05_259d2d55](https://github.com/user-attachments/assets/e3984ec7-a654-4afa-b086-f5465604a2a9)
   ### Blynk application (both phone and laptop)
       
-      ![WhatsApp Image 2025-02-05 at 01 00 06_8f9c97b5](https://github.com/user-attachments/assets/2e6aafb6-3bb0-4e51-888f-b2426fddb64a)
+![WhatsApp Image 2025-02-05 at 01 00 06_8f9c97b5](https://github.com/user-attachments/assets/2e6aafb6-3bb0-4e51-888f-b2426fddb64a)
       
-      ![WhatsApp Image 2025-02-05 at 01 01 07_19f2c414](https://github.com/user-attachments/assets/461d6054-6a57-4baf-b758-af2c583b53f8)
+![WhatsApp Image 2025-02-05 at 01 01 07_19f2c414](https://github.com/user-attachments/assets/461d6054-6a57-4baf-b758-af2c583b53f8)
   ### Serial monitor
 
-      ![image](https://github.com/user-attachments/assets/bceebc31-136d-44d2-8e8f-55301e57f560)
+![image](https://github.com/user-attachments/assets/bceebc31-136d-44d2-8e8f-55301e57f560)
   ### The servo motor
 
       ![Demo]()
