@@ -1,0 +1,126 @@
+#define BLYNK_PRINT Serial
+
+#define BLYNK_TEMPLATE_ID "TemplateID"
+#define BLYNK_DEVICE_NAME "Temperature and Humidity Monitor"
+#define BLYNK_AUTH_TOKEN "AuthToken"
+
+
+#include <ESP8266WiFi.h> 
+#include <BlynkSimpleEsp8266.h>
+#include <DHT.h>
+#include <Servo.h>        
+#include <LiquidCrystal.h>  
+
+// WiFi Credentials
+char auth[] = BLYNK_AUTH_TOKEN;
+char ssid[] = "Wifi Username";  // type your wifi name
+char pass[] = "Wifi Password";  // type your wifi password
+
+// 🔹 LCD Pins
+#define RS D1
+#define EN D2
+#define D4_LCD D5
+#define D5_LCD D6
+#define D6_LCD D7
+#define D7_LCD D8
+
+LiquidCrystal lcd(RS, EN, D4_LCD, D5_LCD, D6_LCD, D7_LCD);
+
+// 🔹 DHT Sensor
+#define DHTPIN D4  // Connect Out pin to D4 in NODEMCU
+#define DHTTYPE DHT11  
+DHT dht(DHTPIN, DHTTYPE);
+
+// 🔹 Servo Motor (Fan Control)
+#define SERVO_PIN D3  // Servo connected to D3 (GPIO0)
+Servo fanServo;      
+
+// 🔹 Fan Control Variables
+bool fanState = false;  // Default OFF
+
+// 🔹 Blynk Timer
+BlynkTimer timer;
+
+// 🔹 Read and Display Sensor Data
+void sendSensor()
+{
+  float h = dht.readHumidity();
+  float t = dht.readTemperature(); 
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("DHT Sensor Error!");
+    return;
+  }
+
+  // Send values to Blynk
+  Blynk.virtualWrite(V0, t);
+  Blynk.virtualWrite(V1, h);
+  
+  // Print to Serial Monitor
+  Serial.print("Temperature: ");
+  Serial.print(t);
+  Serial.print("°C    Humidity: ");
+  Serial.print(h);
+  Serial.println("%");
+
+  // Display on LCD
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: ");
+  lcd.print(t);
+  lcd.print(" C");
+
+  lcd.setCursor(0, 1);
+  lcd.print("Humidity: ");
+  lcd.print(h);
+  lcd.print(" %");
+
+}
+
+// 🔹 Blynk Button to Toggle Fan ON/OFF (V2)
+BLYNK_WRITE(V2) {
+  int value = param.asInt();
+  fanState = (value == 1);  // 1 = ON, 0 = OFF
+
+  if (fanState) {
+    fanServo.attach(SERVO_PIN);
+    fanServo.write(180);  // Rotate to 180° (Fan ON)
+    delay(500);
+    fanServo.detach();
+    Serial.println("Fan ON (Manual)");
+  } 
+  else {
+    fanServo.attach(SERVO_PIN);
+    fanServo.write(0);  // Rotate to 0° (Fan OFF)
+    delay(500);
+    fanServo.detach();
+    Serial.println("Fan OFF (Manual)");
+  }
+}
+
+void setup()
+{   
+  Serial.begin(9600);
+  Blynk.begin(auth, ssid, pass);
+  dht.begin();
+  lcd.begin(16, 2);  
+  lcd.print("Connecting...");
+
+  // 🔹 Initialize Servo (Default OFF)
+  fanServo.attach(SERVO_PIN);
+  fanServo.write(0);  
+  delay(500);
+  fanServo.detach();
+
+  // 🔹 Set Timer to Read Sensor Every 2 Seconds
+  timer.setInterval(2000L, sendSensor);
+}
+
+void loop()
+{
+  Blynk.run();
+  timer.run();
+}
