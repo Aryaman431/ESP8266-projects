@@ -41,8 +41,7 @@
   ### The servo motor
 
 <video controls>
-  <source src="(https://github.com/Aryaman431/ESP8266-projects/blob/main/lcd.mp4)" type="video/mp4">
-  Your browser does not support the video tag.
+  <source src="([https://github.com/Aryaman431/ESP8266-projects/blob/main/lcd.mp4])" type="video/mp4">
 </video>
 
 
