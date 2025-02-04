@@ -40,9 +40,8 @@
 ![image](https://github.com/user-attachments/assets/bceebc31-136d-44d2-8e8f-55301e57f560)
   ### The servo motor
 
-<video controls>
-  <source src="([https://github.com/Aryaman431/ESP8266-projects/blob/main/lcd.mp4])" type="video/mp4">
-</video>
+![Demo of My Project](./lcd-ezgif.com-video-to-gif-converter.gif)
+
 
 
 
