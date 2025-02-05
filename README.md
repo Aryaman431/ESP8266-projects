@@ -8,7 +8,7 @@
   Also make sure that your ESP is connected to a different internt connection than you laptop.
 # How to Run# How to Run
   In your **arduino IDE** go to file and then preferences then in the additional boards manager url paste :https://arduino.esp8266.com/stable/package_esp8266com_index.json. 
-  Paste the code `temperature and humidity` in your **arduino IDE** make sure you have downloaded all the libraries from the library tab before using them in your code.
+  Paste the code `temperature and humidity sensor` in your **arduino IDE** make sure you have downloaded all the libraries from the library tab before using them in your code.
   Connect the components together(given below)
   ### For the DHT sensor
     ESP     DHT
